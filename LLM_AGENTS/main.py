@@ -5,6 +5,7 @@ import os
 
 def fetch_restaurant_data(restaurant_name: str) -> Dict[str, List[str]]:
     # TODO
+    restaurant_name
     # This function takes in a restaurant name and returns the reviews for that restaurant. 
     # The output should be a dictionary with the key being the restaurant name and the value being a list of reviews for that restaurant.
     # The "data fetch agent" should have access to this function signature, and it should be able to suggest this as a function call. 
