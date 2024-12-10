@@ -125,7 +125,7 @@ def get_scoring_agent_prompt() -> str:
     Ensure precise calculation of the final score.
     """
 
-def main(user_query: str)
+def main(user_query: str):
     # LLM configuration
     llm_config = {
         "config_list": [
