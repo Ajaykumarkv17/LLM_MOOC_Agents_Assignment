@@ -3,6 +3,11 @@ from autogen import ConversableAgent, AssistantAgent
 import sys
 import os
 import math
+from dotenv import load_dotenv
+
+
+
+load_dotenv()
 
 def fetch_restaurant_data(restaurant_name: str) -> Dict[str, List[str]]:
     """
@@ -15,7 +20,7 @@ def fetch_restaurant_data(restaurant_name: str) -> Dict[str, List[str]]:
         Dict[str, List[str]]: Dictionary with restaurant name and its reviews
     """
     try:
-        with open('restaurant-reviews.txt', 'r') as f:
+        with open('restaurant-data.txt', 'r') as f:
             reviews = f.readlines()
     except FileNotFoundError:
         return {restaurant_name: []}
@@ -126,7 +131,8 @@ def main(user_query: str):
         "config_list": [
             {
                 "model": "gpt-4o-mini", 
-                "api_key": os.environ.get("OPENAI_API_KEY")
+                "api_key": "",
+                "base_url":"https://models.inference.ai.azure.com"
             }
         ]
     }
@@ -151,7 +157,7 @@ def main(user_query: str):
     data_fetch_agent = AssistantAgent(
         "data_fetch_agent",
         system_message=get_data_fetch_agent_prompt(user_query),
-        llm_config=llm_config
+        llm_config=llm_config,
     )
     
     # Review Analyzer Agent
@@ -165,7 +171,8 @@ def main(user_query: str):
     scoring_agent = AssistantAgent(
         "scoring_agent",
         system_message=get_scoring_agent_prompt(),
-        llm_config=llm_config
+        llm_config=llm_config,
+        
     )
     
     # Chat Sequence
