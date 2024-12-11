@@ -116,7 +116,7 @@ def get_scoring_agent_prompt() -> str:
     return """
     You are a scoring agent responsible for calculating the overall restaurant score.
     
-    Your tasks:
+    Your task:
     1. Review the food and customer service scores
     2. Use the calculate_overall_score function to compute the final score
     3. Return the restaurant's overall rating
