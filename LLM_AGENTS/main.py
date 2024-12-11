@@ -130,7 +130,7 @@ def main(user_query: str):
     llm_config = {
         "config_list": [
             {
-                "model": "gpt-4o-mini", 
+                "model": "gpt-4o", 
                 "api_key": "",
                 "base_url":"https://models.inference.ai.azure.com"
             }
