@@ -119,7 +119,7 @@ def get_scoring_agent_prompt() -> str:
     Your task:
     1. Review the food and customer service scores
     2. Use the calculate_overall_score function to compute the final score
-    3. Return the restaurant's overall rating
+    3. Return the restaurant's overall r
     
     The scoring uses a geometric mean approach that slightly penalizes food quality.
     Ensure precise calculation of the final score.
